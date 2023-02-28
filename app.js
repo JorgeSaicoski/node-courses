@@ -38,3 +38,5 @@ app.use(function(req, res, next) {
 const server = app.listen(port, () => {
     console.log('Server is up and running at port: ' + port);
 });
+
+db()
