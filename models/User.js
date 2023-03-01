@@ -18,10 +18,7 @@ const UserSchema = new mongoose.Schema({
         password: {
             type: String,
             required: true,
-        },
-        vip: Boolean,
-        img: String,
-        bio: String,
+        }
     },
     { collection: 'user-data'}
 );
