@@ -7,6 +7,9 @@ const UserSchema = new mongoose.Schema({
             required: true,
             unique: true
         },
+        email:{
+            type: String,
+        },
         courses:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Course'

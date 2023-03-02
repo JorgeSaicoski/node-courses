@@ -7,6 +7,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 const db = require("./db/conn");
 
+//routes
+const authRoutes = require("./routes/auth")
+
 const allowlist = [
     'http://sarkis.dev',
 ];
@@ -28,6 +31,8 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/login', authRoutes);
 
 app.use(function(req, res, next) {
     const err = new Error('Not Found');
