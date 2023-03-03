@@ -7,6 +7,8 @@ const {
 
 
 const register = async (req, res) => {
+    console.log("register")
+    console.log(req.body)
     try {
         data = req.body
         const item = await registerUser(data)

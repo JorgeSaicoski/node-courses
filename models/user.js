@@ -4,16 +4,23 @@ const mongoose = require("mongoose")
 const UserSchema = new mongoose.Schema({
         name: {
             type: String,
+            required: false,
+            default: ""
+        },
+        username: {
+            type: String,
             required: true,
             unique: true
         },
         email:{
             type: String,
         },
-        courses:[{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Course'
-        }],
+        coursesStatus:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'CourseStatus'
+            },
+        ],
         roles: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Role"

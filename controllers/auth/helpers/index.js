@@ -6,6 +6,8 @@ const {
 } = require('./saveUserAccessAndReturnToken')
 const { setUserInfo } = require('./setUserInfo')
 const {checkPassword} = require("./checkPassword");
+const {registerUser} = require("./registerUser");
+const {returnRegisterToken} = require("./returnRegisterToken");
 
 
 module.exports = {
@@ -15,4 +17,6 @@ module.exports = {
     passwordsDoNotMatch,
     saveUserAccessAndReturnToken,
     setUserInfo,
+    registerUser,
+    returnRegisterToken
 }
