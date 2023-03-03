@@ -32,7 +32,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/login', authRoutes);
+
+//Routes
+app.use('/auth', authRoutes);
 
 app.use(function(req, res, next) {
     const err = new Error('Not Found');

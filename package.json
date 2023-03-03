@@ -19,6 +19,9 @@
     "helmet": "^6.0.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "request-ip": "^3.3.0",
+    "uuid": "^9.0.0",
+    "validator": "^13.9.0"
   }
 }
