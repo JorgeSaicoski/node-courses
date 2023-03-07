@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 const {createQuestion} = require("../controllers/question");
+const passport = require("../middlewares/passport");
 
 // Route to create a new question
-router.post('/', createQuestion);
+router.post('/', passport.authenticate('jwt', { session: false }),createQuestion);
 
 // Route to get all questions
 router.get('/', (req, res) => {
