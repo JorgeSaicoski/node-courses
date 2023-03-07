@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Question = require('../models/question');
 const {createQuestion} = require("../controllers/question");
 const passport = require("../middlewares/passport");
 
 // Route to create a new question
 router.post('/', passport.authenticate('jwt', { session: false }),createQuestion);
 
+
+/*
 // Route to get all questions
 router.get('/', (req, res) => {
     Question.find((err, questions) => {
@@ -16,6 +17,7 @@ router.get('/', (req, res) => {
         res.json(questions);
     });
 });
+
 
 // Route to get a specific question by ID
 router.get('/:id', (req, res) => {
@@ -63,5 +65,6 @@ router.delete('/:id', (req, res) => {
         res.json({ message: 'Question deleted successfully.' });
     });
 });
+*/
 
 module.exports = router;
