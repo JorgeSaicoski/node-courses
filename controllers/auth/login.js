@@ -8,8 +8,6 @@ const {
 const {handleError} = require("../../middlewares")
 
 const login = async (req, res) => {
-    console.log("login")
-    console.log(req.body)
     try {
         const data = req.body
         console.log(data.email)
@@ -19,8 +17,10 @@ const login = async (req, res) => {
         if (!isPasswordMatch) {
             handleError(res, await passwordsDoNotMatch(user))
         } else {
-            // all ok, register access and return token
-            res.status(200).json(await saveUserAccessAndReturnToken(req, user))
+            console.log(user)
+            const response = await saveUserAccessAndReturnToken(req, user)
+            console.log(response)
+            res.status(200).json(response)
         }
     } catch (error) {
         handleError(res, error)
