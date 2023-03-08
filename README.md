@@ -1,6 +1,7 @@
 # Courses Node
 
 ## This is a backend software, so you will need a frontend to use it properly
+this app was created to let a "admin"/"teacher" make a few question for them stundents.
 
 # Todo:
 
