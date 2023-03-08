@@ -45,7 +45,7 @@ module.exports = ()=>{
 ## Goals:
 - [x] Connect to the DB
 - [ ] CRUD User
-- [ ] Check permission to create questions
+- [x] Check permission to create questions
 - [ ] CRUD question
 - [ ] Users can do the question and receive the feedback
 - [ ] Users can buy the course
