@@ -1,6 +1,7 @@
 # Courses Node
 
 ## This is a backend software, so you will need a frontend to use it properly
+this app was created to let a "admin"/"teacher" make a few question for them stundents.
 
 # Todo:
 
@@ -44,7 +45,7 @@ module.exports = ()=>{
 ## Goals:
 - [x] Connect to the DB
 - [ ] CRUD User
-- [ ] Check permission to create questions
+- [x] Check permission to create questions
 - [ ] CRUD question
 - [ ] Users can do the question and receive the feedback
 - [ ] Users can buy the course
