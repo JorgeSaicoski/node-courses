@@ -16,7 +16,7 @@ const generateToken = (user = '') => {
             jwt.sign(
                 {
                     data: {
-                        _id: user
+                        _id: user._id
                     },
                     exp: expiration
                 },

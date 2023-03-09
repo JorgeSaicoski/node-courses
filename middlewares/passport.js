@@ -2,6 +2,7 @@ const passportJWT = require('passport-jwt');
 const User = require('../models/user')
 const ExtractJwt = passportJWT.ExtractJwt;
 const JwtStrategy = passportJWT.Strategy;
+const passport = require('passport');
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -20,6 +21,6 @@ const strategy = new JwtStrategy(jwtOptions, async (payload, done) => {
     }
 });
 
-module.exports = passport => {
-    passport.use(strategy);
-};
+passport.use(strategy);
+
+module.exports = passport

@@ -7,7 +7,7 @@ require("dotenv").config({ path: "./config.env" });
 const app = express();
 const port = process.env.PORT || 5000;
 const db = require("./db/conn");
-require('./middlewares/passport')(passport);
+
 
 
 
