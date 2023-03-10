@@ -1,21 +1,23 @@
 const User = require('../../models/user')
-const { matchedData } = require('express-validator')
-const { isIDGood, handleError } = require('../../middleware/utils')
-const { getItem } = require('../../middleware/db')
+const { getItem } = require('../../middlewares/db')
+const {handleError} = require("../../middlewares");
 
 /**
  * Get item function called by route
  * @param {Object} req - request object
  * @param {Object} res - response object
  */
-const getUser = async (req, res) => {
+const getUserByID = async (req, res) => {
     try {
-        req = matchedData(req)
-        const id = await isIDGood(req.id)
-        res.status(200).json(await getItem(id, User))
+        const {id} = req.params
+        const user = await getItem(id, User)
+        if (!user){
+            return res.status(404).json({message: "User not found"})
+        }
+        res.status(200).json(user)
     } catch (error) {
         handleError(res, error)
     }
 }
 
-module.exports = { getUser }
+module.exports = { getUserByID }
