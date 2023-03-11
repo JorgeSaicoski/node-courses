@@ -17,20 +17,25 @@ const UserSchema = new mongoose.Schema({
             required: true,
             unique: true
         },
-        coursesStatus:[
+        questionAnswered:[
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'CourseStatus'
+                ref: 'QuestionAnswered'
             },
         ],
         roles: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Role"
         }],
+        createdAt: {
+            type: Date,
+            default: Date.now
+        },
         password: {
             type: String,
             required: true,
         }
+
     },
     { collection: 'user-data'}
 );
