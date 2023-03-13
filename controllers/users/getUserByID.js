@@ -1,5 +1,5 @@
 const User = require('../../models/user')
-const { getItem } = require('../../middlewares/db')
+const { getItem } = require('../../middlewares/mongo')
 const {handleError} = require("../../middlewares");
 
 /**

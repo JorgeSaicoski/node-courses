@@ -1,5 +1,5 @@
 const Question = require("../../models/question");
-const {createItem} = require("../../middlewares/db");
+const {createItem} = require("../../middlewares/mongo");
 
 const createQuestion = async (req, res) => {
     try {
