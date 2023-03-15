@@ -1,5 +1,6 @@
 const express = require('express')
 const {getUserByID} = require("../controllers/users/getUserByID");
+const {getFilterUsers} = require("../controllers/users/getFilterUsers");
 const router = express.Router()
 
 
@@ -8,7 +9,10 @@ router.get(
     getUserByID
 )
 
-
+router.post(
+    '/filter',
+    getFilterUsers
+)
 
 
 
