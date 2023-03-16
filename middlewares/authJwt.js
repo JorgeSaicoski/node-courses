@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const db = require("../models");
 const User = db.user;
 const Role = db.role;
+const jwt_decode = require("jwt-decode")
 
 verifyToken = (req, res, next) => {
     let token = req.session.token;
@@ -20,33 +21,47 @@ verifyToken = (req, res, next) => {
 };
 
 isAdmin = (req, res, next) => {
-    User.findById(req.userId).exec((err, user) => {
-        if (err) {
-            res.status(500).send({ message: err });
-            return;
-        }
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+        return res.status(401).send({ message: 'Access denied. No token provided.' });
+    }
+    console.log(token)
+    const decoded = jwt_decode(token);
+    console.log(decoded.data._id)
+    const id = decoded.data._id
 
-        Role.find(
-            {
-                _id: { $in: user.roles },
-            },
-            (err, roles) => {
-                if (err) {
-                    res.status(500).send({ message: err });
-                    return;
-                }
+    try {
+        User.findById(id).exec((err, user) => {
+            console.log(user)
+            if (err) {
+                res.status(500).send({ message: err });
+                return;
+            }
 
-                for (let i = 0; i < roles.length; i++) {
-                    if (roles[i].name === "admin") {
-                        next();
+            Role.find(
+                {
+                    _id: { $in: user.roles },
+                },
+                (err, roles) => {
+                    if (err) {
+                        res.status(500).send({ message: err });
                         return;
                     }
-                }
 
-                res.status(403).send({ message: "Require Admin Role!" });
-            }
-        );
-    });
+                    for (let i = 0; i < roles.length; i++) {
+                        if (roles[i].name === "admin") {
+                            next();
+                            return;
+                        }
+                    }
+
+                    res.status(403).send({ message: "Require Admin Role!" });
+                }
+            );
+        });
+    } catch (ex) {
+        res.status(400).send({ message: 'Invalid token.' });
+    }
 };
 
 isModerator = (req, res, next) => {

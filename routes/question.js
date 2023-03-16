@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {createQuestion} = require("../controllers/question");
 const passport = require("../middlewares/passport");
+const {isAdmin} = require("../middlewares/authJwt")
 
 // Route to create a new question
-router.post('/', passport.authenticate('jwt', { session: false }),createQuestion);
+router.post('/', isAdmin,createQuestion);
 
 
 /*

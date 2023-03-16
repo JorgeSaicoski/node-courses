@@ -2,6 +2,7 @@ const express = require('express')
 const {getUserByID} = require("../controllers/users/getUserByID");
 const {getFilterUsers} = require("../controllers/users/getFilterUsers");
 const router = express.Router()
+const {isAdmin} = require("../middlewares/authJwt")
 
 
 router.get(
@@ -11,6 +12,7 @@ router.get(
 
 router.post(
     '/filter',
+    isAdmin,
     getFilterUsers
 )
 

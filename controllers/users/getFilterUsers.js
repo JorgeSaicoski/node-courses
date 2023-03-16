@@ -7,8 +7,8 @@ const {
     handleError,
     buildErrObject
 } = require('../../middlewares')
+
 const { checkQueryFilter } = require('./helpers/checkQueryFilter')
-const jwt_decode = require('jwt-decode')
 
 /**
  * Get item function called by route
@@ -16,12 +16,9 @@ const jwt_decode = require('jwt-decode')
  * @param {Object} res - response object
  */
 const getFilterUsers = async (req, res) => {
-    const authHeader = req.headers['authorization']
-    console.log(authHeader)
-    console.log(req.headers)
-    const decoded = jwt_decode(authHeader)
 
-    console.log(decoded);
+
+
 
     try {
         const options = await listInitOptionsAggregate(req)
