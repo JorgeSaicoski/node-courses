@@ -9,8 +9,7 @@ const aggregatePaginate = require('mongoose-aggregate-paginate-v2')
 const UserSchema = new mongoose.Schema({
         name: {
             type: String,
-            required: false,
-            default: ""
+            default: null
         },
         username: {
             type: String,

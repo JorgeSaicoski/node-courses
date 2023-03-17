@@ -7,6 +7,7 @@ require("dotenv").config({ path: "./config.env" });
 const app = express();
 const port = process.env.PORT || 5000;
 const db = require("./db/conn");
+const {initData} = require("./data/initData");
 
 
 
@@ -16,6 +17,7 @@ const db = require("./db/conn");
 const authRoutes = require("./routes/auth")
 const questionRoutes = require("./routes/question")
 const usersRoutes = require("./routes/users")
+
 
 const allowlist = [
     'http://sarkis.dev',
@@ -63,3 +65,4 @@ const server = app.listen(port, () => {
 });
 
 db()
+initData()
