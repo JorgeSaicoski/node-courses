@@ -20,7 +20,7 @@ module.exports = ()=>{
         console.log("hi")
         try {
             mongoose.connect(process.env.DB_URI,{
-                user: "admin",
+                user: "auth",
                 pass: "3^9r4$f$o7k*TSk9rJBWbh"
             }).then((db)=>{
                 console.log("-----------------------")
