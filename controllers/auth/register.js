@@ -10,7 +10,7 @@ const register = async (req, res) => {
     console.log("register")
     console.log(req.body)
     try {
-        data = req.body
+        const data = req.body
         const item = await registerUser(data)
         const userInfo = await setUserInfo(item)
         const response = await returnRegisterToken(item, userInfo)
