@@ -17,7 +17,6 @@ const { checkQueryFilter } = require('./helpers/checkQueryFilter')
  */
 const getFilterUsers = async (req, res) => {
     try {
-        console.log("entry")
         const options = await listInitOptionsAggregate(req)
         let data = req.body
         const query = await checkQueryFilter(data)

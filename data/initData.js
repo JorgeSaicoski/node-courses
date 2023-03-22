@@ -39,12 +39,10 @@ const createAdmin = async () => {
     try {
         const admin = await User.findOne({ username: 'admin' });
         const adminRole = await Role.findOne({ name: 'admin' });
-        console.log(adminRole)
         if (admin) {
             console.log('Admin user already exists');
             return;
         }
-        //const hashedPassword = await bcrypt.hash('password', 10); // hash the password
         const user = new User({
             name: 'admin',
             username: 'admin',
