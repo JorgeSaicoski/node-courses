@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
             required: true,
             unique: true
         },
-        questionAnswered:[
+        questionsAnswered:[
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'QuestionAnswered'
