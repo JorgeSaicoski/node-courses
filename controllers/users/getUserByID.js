@@ -2,11 +2,7 @@ const User = require('../../models/user')
 const { getItem } = require('../../middlewares/mongo')
 const {handleError} = require("../../middlewares");
 
-/**
- * Get item function called by route
- * @param {Object} req - request object
- * @param {Object} res - response object
- */
+
 const getUserByID = async (req, res) => {
     try {
         const {id} = req.params
